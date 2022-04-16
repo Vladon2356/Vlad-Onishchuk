@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block title %}Delete product{% endblock %}
+
+{% block content %}
+    <form action="{{ url_for('delete_product_from_menu') }}" method="post" class="form-control">
+        <select name="product" class="form-select" aria-label="Default select example">
+
+        {% for item in menu %}
+            <option value="{{ item['product'] }}">{{ item['product'] }}</option>
+        {% endfor %}
+        </select>
+        <br>
+    <input class="btn btn-danger" type="submit" value="Delete">
+    </form>
+{% endblock %}
