@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block title %}Result {% endblock %}
+
+{% block content %}
+        <div class="card-header bg-info" style="width: 30%">
+           Your calorie norm - {{ result }}
+        </div>
+
+        <a class="btn btn-success" style="width: 30%" href="{{ url_for('create_menu') }}" role="button">Create menu</a>
+
+{% endblock %}
