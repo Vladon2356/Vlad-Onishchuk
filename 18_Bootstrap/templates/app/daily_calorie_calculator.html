@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block title %} Clalculator {% endblock %}
+
+{% block content %}
+    <form action="{{ url_for('daily_calorie_calculator') }}" method="post" class="form-control">
+        <div class="mb-3">
+            <label for="age" class="form-label">Age</label>
+            <input name="age" class="form-control" id="age" placeholder="Years">
+        </div>
+        <div class="mb-3">
+            <label for="height" class="form-label">Height</label>
+            <input name="height" class="form-control" id="height" placeholder="cm"></input>
+        </div>
+
+        <div class="mb-3">
+            <label for="mass" class="form-label">Height</label>
+            <input name="mass" class="form-control" id="mass" placeholder="kg"></input>
+        </div>
+        <select name="sex" class="form-select" aria-label="Default select example">
+            <option selected>Sex</option>
+            <option value="1">Male</option>
+            <option value="2">Female</option>
+        </select>
+        <br>
+      <input class="btn btn-success" type="submit" value="Submit">
+    </form>
+
+
+{% endblock %}

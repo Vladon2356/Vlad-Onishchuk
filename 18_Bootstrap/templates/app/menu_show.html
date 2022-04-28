@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% block title %}Menu {% endblock %}
+
+{% block content %}
+    <div class="card">
+        <ul class="list-group list-group-flush">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th scope="col">Product</th>
+                    <th scope="col">Mass(g)</th>
+                    <th scope="col">Calorie</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for item in menu %}
+                    <tr>
+                        <th scope="row">{{ item['product'] }}</th>
+                        <td>{{ item['mass'] }}</td>
+                        <td>{{ item['calorie'] }}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </ul>
+
+        <div class="card" style="width: 30%;">
+            <ul class="list-group list-group-flush">
+                {% if count_calorie_norm < count_calorie %}
+                    <li class="list-group-item bg-danger">Coutnt calorie - {{ count_calorie }}</li>
+                    <li class="list-group-item bg-info">Your norm - {{ count_calorie_norm }}</li>
+                {% else %}
+                    <li class="list-group-item  bg-success">Coutnt calorie - {{ count_calorie }}</li>
+                    <li class="list-group-item  bg-info">Your norm - {{ count_calorie_norm }}</li>
+                {% endif %}
+            </ul>
+        </div>
+
+        <div class="btn-group" role="group" aria-label="Basic example" style="width: 30%">
+            <a class="btn btn-success" href="{{ url_for('add_product_to_menu') }}" role="button">Add product</a>
+            <a class="btn btn-danger" href="{{ url_for('delete_product_from_menu') }}" role="button">Delete product</a>
+        </div>
+    </div>
+
+
+
+
+{% endblock %}
